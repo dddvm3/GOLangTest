@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <title>{{ .title }}</title>
+
+</head>
+
+<body>
+    <div class="fullscreen bg">
+        <img class="bg">
+        </img>
+    </div>
+
+    <form class="Start-Container" action="/MainPage" method="post">
+        <button class="start button" name="userID" value={{.userID}}></button>
+    </form>
+</body>
+
+</html>

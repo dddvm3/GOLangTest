@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="../static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css'
+        integrity='sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg=='
+        crossorigin='anonymous' />
+    <title>{{ .title }}</title>
+</head>
+
+<body>
+    <defs>
+
+    </defs>
+    <div class="fullscreen">
+        <div class="background">
+            <div class="questionContent" id="content" text="{{ .Question }}">
+                <text class="questioncontent contenttext">
+                    <tspan class="content"></tspan>
+                </text>
+            </div>
+            <div class="CountBar" id="countbar" count=" {{ .questionNum }}">
+                <div class="questionCountBar">
+                    <div class="questionCountBarInner">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+            </div>
+        </div>
+        <div class="Group">
+            <input type="hidden" id="userID" userid={{.userID}}>
+            <button class="option" type="submit" name="answer" value="A" onclick="checkanswer('A')"
+                style="font-size: 35px;">{{.OptionA}}</button>
+            <button class="option" type="submit" name="answer" value="B" onclick="checkanswer('B')"
+                style="font-size: 35px;">{{.OptionB}}</button>
+            <button class="option" type="submit" name="answer" value="C" onclick="checkanswer('C')"
+                style="font-size: 35px;">{{.OptionC}}</button>
+            <button class="option" type="submit" name="answer" value="D" onclick="checkanswer('D')"
+                style="font-size: 35px;">{{.OptionD}}</button>
+        </div>
+        <div class="displayflex" id="checkanswer" style="display: none;" answer="{{.Answer}}">
+            <img class="countdown" id="countdown" src=""></img>
+            <div class="Group">
+                <text class="answer" id="answerA" style="background-color: rgba(255, 255, 255, 0.2);">O</text>
+                <text class="answer" id="answerB" style="background-color: rgba(255, 255, 255, 0.2);">X</text>
+                <text class="answer" id="answerC" style="background-color: rgba(255, 255, 255, 0.2);">X</text>
+                <text class="answer" id="answerD" style="background-color: rgba(255, 255, 255, 0.2);">X</text>
+            </div>
+        </div>
+        <form id="post" method="post" action="/QuestionPage">
+            <p name="userID" value={{.userID}}></p>
+            <p name="answer" id="postanswer" value=""></p>
+            <p name="questionCount" id={{.questionNum}} value=""></p>
+            <input type="submit"></input>
+        </form>
+
+    </div>
+</body>
+
+<script src=' https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+    integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js'
+    integrity='sha512-j7/1CJweOskkQiS5RD9W8zhEG9D9vpgByNGxPIqkO5KrXrwyDAroM9aQ9w8J7oRqwxGyz429hPVk/zR6IOMtSA=='
+    crossorigin='anonymous'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js'
+    integrity='sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=='
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'
+    integrity='sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=='
+    crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.js'
+    integrity='sha512-FNLUWyPb/8CPtX31YFe1Dcytt0o71rQ8ezIrv3Ul2/dQ+cDEmc9/oEC/3bP38o6Dt+Ou/bwSj0a24d/EoY2leQ=='
+    crossorigin='anonymous'></script>
+<script src="../static/js/index.js"></script>
+
+</html>
